@@ -24,7 +24,7 @@ class WeatherApi implements APIRequestRepresentable {
           type: WeatherApiType.daySummary,
           lat: lat,
           lng: lng,
-          apiKey: "f1d9a4adba07982fac48baf44b9cc5ea",
+          apiKey: dotenv.env['WEATHER_MAP_API_KEY'] ?? '',
         );
 
   @override
@@ -50,7 +50,7 @@ class WeatherApi implements APIRequestRepresentable {
         return {
           "lat": "$lat",
           "lon": "$lng",
-          "appid": dotenv.env['WEATHER_MAP_API_KEY'] ?? '',
+          "appid": apiKey,
           "units": "metric",
         };
     }
